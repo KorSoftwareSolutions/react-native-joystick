@@ -1,5 +1,41 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "korol-joystick",
+  "version": "1.0.0",
+  "description": "React Native Joystick",
+  "license": "MIT",
+  "files": [
+    "src"
+  ],
+  "main": "lib/index.ts",
+  "homepage": "https://github.com/ionkorol/korol-joystick",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ionkorol/korol-joystick.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ionkorol/korol-joystick/issues"
+  },
+  "author": {
+    "email": "ion@korol.dev",
+    "name": "Ion Korol",
+    "url": "https://korol.dev"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "expo",
+    "touch",
+    "gesture",
+    "event",
+    "tool",
+    "game",
+    "joystick",
+    "nipple",
+    "pad"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",

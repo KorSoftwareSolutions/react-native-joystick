@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import AxisPad from "./src/AxisPad";
+import AxisPad from "./src/Joystick";
 
 export default function App() {
   return (

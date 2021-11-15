@@ -1,5 +1,7 @@
 node_modules/
 .expo/
+.expo-shared/
+assets/
 dist/
 npm-debug.*
 *.jks
@@ -9,9 +11,9 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+App.tsx
+app.json
 
 # macOS
 .DS_Store
 
-App.tsx
-assets/
