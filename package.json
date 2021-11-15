@@ -4,7 +4,7 @@
   "description": "React Native Joystick",
   "license": "MIT",
   "files": [
-    "src"
+    "lib"
   ],
   "main": "lib/index.ts",
   "homepage": "https://github.com/ionkorol/korol-joystick",
@@ -34,23 +34,10 @@
     "pad"
   ],
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "example": "example"
   },
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
-  },
-  "dependencies": {
-    "expo": "~43.0.2",
-    "expo-status-bar": "~1.1.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-native": "0.64.3",
-    "react-native-web": "0.17.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@types/react": "~17.0.21",

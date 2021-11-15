@@ -1,19 +1,1 @@
-node_modules/
-.expo/
-.expo-shared/
-assets/
-dist/
-npm-debug.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-web-build/
-App.tsx
-app.json
-
-# macOS
-.DS_Store
 
