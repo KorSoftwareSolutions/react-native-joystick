@@ -1,13 +1,6 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
-import {
-  GestureResponderEvent,
-  StyleSheet,
-  View,
-  ViewProps,
-} from "react-native";
+import React, { useState } from "react";
+import { GestureResponderEvent, View } from "react-native";
 import * as utils from "./utils";
-
-type JoystickDirection = "FORWARD" | "RIGHT" | "LEFT" | "BACKWARD";
 
 interface JoystickUpdateEvent {
   type: "move" | "stop" | "start";
@@ -38,9 +31,6 @@ const AxisPad: React.FC<Props> = (props) => {
 
   const [x, setX] = useState(wrapperRadius - nippleRadius);
   const [y, setY] = useState(wrapperRadius - nippleRadius);
-
-  const wrapperRef = useRef<View>(null);
-  const nippleRef = useRef<View>(null);
 
   const handleTouchMove = (e: GestureResponderEvent) => {
     const fingerX = e.nativeEvent.locationX;
@@ -92,13 +82,42 @@ const AxisPad: React.FC<Props> = (props) => {
   const handleTouchEnd = (e: GestureResponderEvent) => {
     setX(wrapperRadius - nippleRadius);
     setY(wrapperRadius - nippleRadius);
+    onStop &&
+      onStop({
+        force: 0,
+        position: {
+          x: 0,
+          y: 0,
+        },
+        angle: {
+          radian: 0,
+          degree: 0,
+        },
+        type: "stop",
+      });
+  };
+
+  const handleTouchStart = (e: GestureResponderEvent) => {
+    onStart &&
+      onStart({
+        force: 0,
+        position: {
+          x: 0,
+          y: 0,
+        },
+        angle: {
+          radian: 0,
+          degree: 0,
+        },
+        type: "start",
+      });
   };
 
   return (
     <View
-      ref={wrapperRef}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      onTouchStart={handleTouchStart}
       style={[
         {
           width: 2 * radius,
@@ -112,7 +131,6 @@ const AxisPad: React.FC<Props> = (props) => {
       ]}
     >
       <View
-        ref={nippleRef}
         pointerEvents="none"
         style={[
           {
