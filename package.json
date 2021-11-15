@@ -1,6 +1,6 @@
 {
   "name": "korol-joystick",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "React Native Joystick",
   "license": "MIT",
   "files": [
@@ -37,7 +37,7 @@
     "lib": "lib",
     "example": "example"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^17.0.2",
     "react-native": "^0.66.3"
   },
