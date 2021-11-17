@@ -1,5 +1,9 @@
 # React Native Joystick
 
+[![NPM](https://nodei.co/npm/korol-joystick.png)](https://nodei.co/npm/korol-joystick/)
+
+[![runs with Expo Go](https://img.shields.io/badge/Runs%20with%20Expo%20Go-4630EB.svg?style=flat-square&logo=EXPO&labelColor=f3f3f3&logoColor=000)](https://expo.io/client)
+
 ## TOC
 
 - [Installation](#installation)
@@ -48,7 +52,7 @@ type: **HEX Color Code**
 
 ### onMove, onStart, onStop
 
-A callback function that has a [MoveJoystickEvent](#MoveJoystickEvent) as an argument.
+A callback function with an argument of type [MoveJoystickEvent](#MoveJoystickEvent).
 
 type: **Function**
 
