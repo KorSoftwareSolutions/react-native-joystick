@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { GestureResponderEvent, View } from "react-native";
 import * as utils from "./utils";
 
