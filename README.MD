@@ -4,9 +4,11 @@
 
 [![runs with Expo Go](https://img.shields.io/badge/Runs%20with%20Expo%20Go-4630EB.svg?style=flat-square&logo=EXPO&labelColor=f3f3f3&logoColor=000)](https://expo.io/client)
 
+
 ## TOC
 
 - [Installation](#installation)
+- [Preview](#preview)
 - [Usage](#usage)
 - [Props](#props)
 - [Types](#types)
@@ -24,6 +26,11 @@ npm install korol-joystick
 ```shell
 yarn add korol-joystick
 ```
+
+## Preview
+
+![React Native Axis Pad: Screen Preview](./assets/preview.gif)
+
 
 ## Usage
 

@@ -3,3 +3,4 @@ node_modules/
 .gitignore
 yarn.lock
 korol-joystick-v1.4.0.tgz
+assets/
