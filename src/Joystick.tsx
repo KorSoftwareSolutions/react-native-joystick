@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GestureResponderEvent, View } from "react-native";
 import * as utils from "./utils";
+import { Gesture, GestureDetector } from 'react-native-gesture-handler'
 
 interface JoystickUpdateEvent {
   type: "move" | "stop" | "start";
@@ -17,7 +18,7 @@ interface JoystickUpdateEvent {
 
 interface Props {
   onStart?: (e: JoystickUpdateEvent) => void;
-  onMove?: (e: JoystickUpdateEvent) => void;
+  onMove?: (e: any) => void;
   onStop?: (e: JoystickUpdateEvent) => void;
   radius?: number;
   color?: string;
@@ -32,7 +33,8 @@ const AxisPad: React.FC<Props> = (props) => {
   const [x, setX] = useState(wrapperRadius - nippleRadius);
   const [y, setY] = useState(wrapperRadius - nippleRadius);
 
-  const handleTouchMove = (e: GestureResponderEvent) => {
+  const handleTouchMove = (event: any) => {
+    const e = event.changedTouches[0]
     const fingerX = e.nativeEvent.locationX;
     const fingerY = e.nativeEvent.locationY;
     let coordinates = {
@@ -113,44 +115,50 @@ const AxisPad: React.FC<Props> = (props) => {
       });
   };
 
+  const panGesture = Gesture.Pan()
+    .onStart(handleTouchStart)
+    .onEnd(handleTouchEnd)
+    .onTouchesMove(handleTouchMove);
+
   return (
-    <View
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-      onTouchStart={handleTouchStart}
-      style={[
-        {
-          width: 2 * radius,
-          height: 2 * radius,
-          borderRadius: radius,
-          backgroundColor: `${color}55`,
-        },
-        {
-          transform: [{ rotateX: "180deg" }],
-        },
-      ]}
-    >
+    <GestureDetector gesture={panGesture}>
       <View
-        pointerEvents="none"
+        // onTouchMove={handleTouchMove}
+        // onTouchEnd={handleTouchEnd}
+        // onTouchStart={handleTouchStart}
         style={[
           {
-            height: 2 * nippleRadius,
-            width: 2 * nippleRadius,
-            borderRadius: nippleRadius,
-            backgroundColor: `${color}bb`,
+            width: 2 * radius,
+            height: 2 * radius,
+            borderRadius: radius,
+            backgroundColor: `${color}55`,
           },
           {
-            position: "absolute",
-            transform: [
-              {
-                translateX: x,
-              },
-              { translateY: y },
-            ],
+            transform: [{ rotateX: "180deg" }],
           },
         ]}
-      />
-    </View>
+      >
+        <View
+          pointerEvents="none"
+          style={[
+            {
+              height: 2 * nippleRadius,
+              width: 2 * nippleRadius,
+              borderRadius: nippleRadius,
+              backgroundColor: `${color}bb`,
+            },
+            {
+              position: "absolute",
+              transform: [
+                {
+                  translateX: x,
+                },
+                { translateY: y },
+              ],
+            },
+          ]}
+        />
+      </View></GestureDetector>
   );
 };
 

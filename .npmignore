@@ -4,3 +4,4 @@ node_modules/
 yarn.lock
 korol-joystick-v1.4.0.tgz
 assets/
+src/
