@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GestureResponderEvent, View } from "react-native";
 import * as utils from "./utils";
-import { Gesture, GestureDetector } from 'react-native-gesture-handler'
+import { Gesture, GestureDetector, GestureStateChangeEvent, GestureTouchEvent } from 'react-native-gesture-handler'
 
 interface JoystickUpdateEvent {
   type: "move" | "stop" | "start";
@@ -33,10 +33,10 @@ const AxisPad: React.FC<Props> = (props) => {
   const [x, setX] = useState(wrapperRadius - nippleRadius);
   const [y, setY] = useState(wrapperRadius - nippleRadius);
 
-  const handleTouchMove = (event: any) => {
+  const handleTouchMove = (event: GestureTouchEvent) => {
     const e = event.changedTouches[0]
-    const fingerX = e.nativeEvent.locationX;
-    const fingerY = e.nativeEvent.locationY;
+    const fingerX = e.x;
+    const fingerY = e.y;
     let coordinates = {
       x: fingerX - nippleRadius,
       y: fingerY - nippleRadius,
@@ -81,7 +81,7 @@ const AxisPad: React.FC<Props> = (props) => {
       });
   };
 
-  const handleTouchEnd = (e: GestureResponderEvent) => {
+  const handleTouchEnd = (e: GestureStateChangeEvent<any>) => {
     setX(wrapperRadius - nippleRadius);
     setY(wrapperRadius - nippleRadius);
     onStop &&
@@ -99,7 +99,7 @@ const AxisPad: React.FC<Props> = (props) => {
       });
   };
 
-  const handleTouchStart = (e: GestureResponderEvent) => {
+  const handleTouchStart = (e: GestureStateChangeEvent<any>) => {
     onStart &&
       onStart({
         force: 0,
