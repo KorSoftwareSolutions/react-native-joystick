@@ -15,6 +15,14 @@
 
 ## Installation
 
+
+
+#### PreInstallation
+
+```shell
+yarn add react-native-gesture-handler
+```
+
 **NPM**
 
 ```shell
