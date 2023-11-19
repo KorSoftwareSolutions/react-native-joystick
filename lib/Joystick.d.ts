@@ -13,7 +13,7 @@ interface JoystickUpdateEvent {
 }
 interface Props {
     onStart?: (e: JoystickUpdateEvent) => void;
-    onMove?: (e: any) => void;
+    onMove?: (e: JoystickUpdateEvent) => void;
     onStop?: (e: JoystickUpdateEvent) => void;
     radius?: number;
     color?: string;

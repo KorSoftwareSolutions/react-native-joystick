@@ -23,7 +23,7 @@ interface JoystickUpdateEvent {
 
 interface Props {
   onStart?: (e: JoystickUpdateEvent) => void;
-  onMove?: (e: any) => void;
+  onMove?: (e: JoystickUpdateEvent) => void;
   onStop?: (e: JoystickUpdateEvent) => void;
   radius?: number;
   color?: string;
@@ -45,7 +45,7 @@ const AxisPad: React.FC<Props> = (props) => {
 
     if (Platform.OS === "web") {
       // y axis is inverted on web
-      fingerY = 100 - fingerY + nippleRadius * 2;
+      fingerY = 2 * radius - fingerY;
     }
 
     let coordinates = {
