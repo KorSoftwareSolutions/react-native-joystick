@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import { GestureResponderEvent, View } from "react-native";
+import { Platform, View } from "react-native";
 import * as utils from "./utils";
-import { Gesture, GestureDetector, GestureStateChangeEvent, GestureTouchEvent } from 'react-native-gesture-handler'
+import {
+  Gesture,
+  GestureDetector,
+  GestureStateChangeEvent,
+  GestureTouchEvent,
+} from "react-native-gesture-handler";
 
 interface JoystickUpdateEvent {
   type: "move" | "stop" | "start";
@@ -34,9 +39,15 @@ const AxisPad: React.FC<Props> = (props) => {
   const [y, setY] = useState(wrapperRadius - nippleRadius);
 
   const handleTouchMove = (event: GestureTouchEvent) => {
-    const e = event.changedTouches[0]
+    const e = event.changedTouches[0];
     const fingerX = e.x;
-    const fingerY = e.y;
+    let fingerY = e.y;
+
+    if (Platform.OS === "web") {
+      // y axis is inverted on web
+      fingerY = 100 - fingerY + nippleRadius * 2;
+    }
+
     let coordinates = {
       x: fingerX - nippleRadius,
       y: fingerY - nippleRadius,
@@ -158,7 +169,8 @@ const AxisPad: React.FC<Props> = (props) => {
             },
           ]}
         />
-      </View></GestureDetector>
+      </View>
+    </GestureDetector>
   );
 };
 
