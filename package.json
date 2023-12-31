@@ -1,6 +1,6 @@
 {
   "name": "korol-joystick",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "React Native Joystick",
   "license": "MIT",
   "files": [
@@ -44,8 +44,8 @@
   },
   "peerDependencies": {
     "react": "18",
-    "react-native": "^0.68.0",
-    "react-native-gesture-handler": "^2.6.0"
+    "react-native": "^0.72.1",
+    "react-native-gesture-handler": "^2.14.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -54,7 +54,7 @@
     "typescript": "~4.3.5"
   },
   "dependencies": {
-    "react-native": "^0.70.1",
-    "react-native-gesture-handler": "^2.6.0"
+    "react-native": "^0.72.1",
+    "react-native-gesture-handler": "^2.14.0"
   }
 }
