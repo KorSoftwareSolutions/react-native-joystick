@@ -1,8 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "react-native-joystick": ["./src/index"]
+    },
+    "allowSyntheticDefaultImports": true,
     "declaration": true,
     "esModuleInterop": true,
-    "jsx": "react",
+    "isolatedModules": true,
+    "jsx": "react-native",
     "lib": ["ESNext"],
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -11,7 +17,6 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "ES2018"
-  },
-  "include": ["src"]
+    "target": "ESNext"
+  }
 }
