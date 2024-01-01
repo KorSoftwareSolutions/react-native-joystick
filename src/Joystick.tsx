@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GestureResponderEvent, View } from "react-native";
 import * as utils from "./utils";
-import { Gesture, GestureDetector, GestureStateChangeEvent, GestureTouchEvent } from 'react-native-gesture-handler'
+import { Gesture, GestureDetector, GestureStateChangeEvent, GestureTouchEvent } from "react-native-gesture-handler";
 
 interface JoystickUpdateEvent {
   type: "move" | "stop" | "start";
@@ -34,7 +34,7 @@ const AxisPad: React.FC<Props> = (props) => {
   const [y, setY] = useState(wrapperRadius - nippleRadius);
 
   const handleTouchMove = (event: GestureTouchEvent) => {
-    const e = event.changedTouches[0]
+    const e = event.changedTouches[0];
     const fingerX = e.x;
     const fingerY = e.y;
     let coordinates = {
@@ -42,25 +42,15 @@ const AxisPad: React.FC<Props> = (props) => {
       y: fingerY - nippleRadius,
     };
 
-    const angle = utils.calcAngle(
-      { x: fingerX, y: fingerY },
-      { x: wrapperRadius, y: wrapperRadius }
-    );
+    const angle = utils.calcAngle({ x: fingerX, y: fingerY }, { x: wrapperRadius, y: wrapperRadius });
 
-    let dist = utils.calcDistance(
-      { x: wrapperRadius, y: wrapperRadius },
-      { x: fingerX, y: fingerY }
-    );
+    let dist = utils.calcDistance({ x: wrapperRadius, y: wrapperRadius }, { x: fingerX, y: fingerY });
 
     const force = dist / (nippleRadius * 2);
 
     dist = Math.min(dist, wrapperRadius);
     if (dist === wrapperRadius) {
-      coordinates = utils.findCoord(
-        { x: wrapperRadius, y: wrapperRadius },
-        dist,
-        angle
-      );
+      coordinates = utils.findCoord({ x: wrapperRadius, y: wrapperRadius }, dist, angle);
       coordinates = {
         x: coordinates.x - nippleRadius,
         y: coordinates.y - nippleRadius,
@@ -115,10 +105,7 @@ const AxisPad: React.FC<Props> = (props) => {
       });
   };
 
-  const panGesture = Gesture.Pan()
-    .onStart(handleTouchStart)
-    .onEnd(handleTouchEnd)
-    .onTouchesMove(handleTouchMove);
+  const panGesture = Gesture.Pan().onStart(handleTouchStart).onEnd(handleTouchEnd).onTouchesMove(handleTouchMove);
 
   return (
     <GestureDetector gesture={panGesture}>
@@ -158,7 +145,8 @@ const AxisPad: React.FC<Props> = (props) => {
             },
           ]}
         />
-      </View></GestureDetector>
+      </View>
+    </GestureDetector>
   );
 };
 
