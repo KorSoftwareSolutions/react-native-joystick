@@ -9,15 +9,20 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/webpack-config": "^19.0.0",
+    "@korsolutions/react-native-joystick": "file:../",
     "expo": "~49.0.15",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-native": "0.72.6",
     "react-native-gesture-handler": "~2.12.0",
-    "react-native-joystick": "file:../"
+    "react-native-reanimated": "~3.3.0",
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@babel/plugin-transform-export-namespace-from": "^7.23.4",
     "@types/react": "~18.2.14",
     "babel-plugin-module-resolver": "^5.0.0",
     "typescript": "^5.1.3"
