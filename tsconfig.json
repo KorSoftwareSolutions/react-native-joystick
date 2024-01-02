@@ -2,8 +2,11 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-joystick": ["./src/index"]
+      "react-native": ["./example/node_modules/react-native"],
+      "react": ["./example/node_modules/react"],
+      "react-native-gesture-handler": ["./example/node_modules/react-native-gesture-handler"]
     },
+    "typeRoots": ["./example/node_modules/@types"],
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "esModuleInterop": true,

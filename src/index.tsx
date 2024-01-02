@@ -1,32 +1,10 @@
 import React, { useState } from "react";
-import { GestureResponderEvent, View } from "react-native";
+import { View } from "react-native";
 import * as utils from "./utils";
 import { Gesture, GestureDetector, GestureStateChangeEvent, GestureTouchEvent } from "react-native-gesture-handler";
+import { IReactNativeJoystickProps } from "./types";
 
-interface JoystickUpdateEvent {
-  type: "move" | "stop" | "start";
-  position: {
-    x: number;
-    y: number;
-  };
-  force: number;
-  angle: {
-    radian: number;
-    degree: number;
-  };
-}
-
-interface Props {
-  onStart?: (e: JoystickUpdateEvent) => void;
-  onMove?: (e: any) => void;
-  onStop?: (e: JoystickUpdateEvent) => void;
-  radius?: number;
-  color?: string;
-}
-
-const AxisPad: React.FC<Props> = (props) => {
-  const { onStart, onMove, onStop, color = "#000000", radius = 150 } = props;
-
+export const ReactNativeJoystick = ({ onStart, onMove, onStop, color = "#000000", radius = 150 }: IReactNativeJoystickProps) => {
   const wrapperRadius = radius;
   const nippleRadius = wrapperRadius / 3;
 
@@ -71,7 +49,7 @@ const AxisPad: React.FC<Props> = (props) => {
       });
   };
 
-  const handleTouchEnd = (e: GestureStateChangeEvent<any>) => {
+  const handleTouchEnd = () => {
     setX(wrapperRadius - nippleRadius);
     setY(wrapperRadius - nippleRadius);
     onStop &&
@@ -89,7 +67,7 @@ const AxisPad: React.FC<Props> = (props) => {
       });
   };
 
-  const handleTouchStart = (e: GestureStateChangeEvent<any>) => {
+  const handleTouchStart = () => {
     onStart &&
       onStart({
         force: 0,
@@ -110,9 +88,6 @@ const AxisPad: React.FC<Props> = (props) => {
   return (
     <GestureDetector gesture={panGesture}>
       <View
-        // onTouchMove={handleTouchMove}
-        // onTouchEnd={handleTouchEnd}
-        // onTouchStart={handleTouchStart}
         style={[
           {
             width: 2 * radius,
@@ -144,10 +119,10 @@ const AxisPad: React.FC<Props> = (props) => {
               ],
             },
           ]}
-        />
+        ></View>
       </View>
     </GestureDetector>
   );
 };
 
-export default AxisPad;
+export type { IReactNativeJoystickEvent, IReactNativeJoystickProps } from "./types";
