@@ -1,9 +1,8 @@
 # React Native Joystick
 
-[![NPM](https://nodei.co/npm/korol-joystick.png)](https://nodei.co/npm/korol-joystick/)
+[![NPM](https://nodei.co/npm/@korsolutions/react-native-joystick.png)](https://nodei.co/npm/@korsolutions/react-native-joystick)
 
 [![runs with Expo Go](https://img.shields.io/badge/Runs%20with%20Expo%20Go-4630EB.svg?style=flat-square&logo=EXPO&labelColor=f3f3f3&logoColor=000)](https://expo.io/client)
-
 
 ## TOC
 
@@ -15,30 +14,30 @@
 
 ## Installation
 
-
-
-#### PreInstallation
-
-```shell
-yarn add react-native-gesture-handler
-```
-
 **NPM**
 
 ```shell
-npm install korol-joystick
+npm install react-native-joystick react-native-gesture-handler --save
 ```
 
 **YARN**
 
 ```shell
-yarn add korol-joystick
+yarn add react-native-joystick react-native-gesture-handler
+```
+
+Add GestureHandlerRootView at the root level of your app.
+```js
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+<GestureHandlerRootView>
+  <YourApp />
+</GestureHandlerRootView>
 ```
 
 ## Preview
 
 ![React Native Axis Pad: Screen Preview](./assets/preview.gif)
-
 
 ## Usage
 
@@ -47,7 +46,7 @@ import { KorolJoystick } from "korol-joystick";
 ```
 
 ```js
-<KorolJoystick color="#06b6d4" radius={75} onMove={(data) => console.log(data)}>
+<KorolJoystick color="#06b6d4" radius={75} onMove={(data) => console.log(data)} />
 ```
 
 ## Props

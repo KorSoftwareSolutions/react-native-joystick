@@ -1,6 +1,6 @@
 {
-  "name": "korol-joystick",
-  "version": "1.7.0",
+  "name": "@korsolutions/react-native-joystick",
+  "version": "2.0.0",
   "description": "React Native Joystick",
   "license": "MIT",
   "files": [
@@ -8,18 +8,18 @@
   ],
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
-  "homepage": "https://github.com/ionkorol/korol-joystick",
+  "homepage": "https://github.com/korsoftwaresolutions/react-native-joystick",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionkorol/korol-joystick.git"
+    "url": "https://github.com/korsoftwaresolutions/react-native-joystick.git"
   },
   "bugs": {
-    "url": "https://github.com/ionkorol/korol-joystick/issues"
+    "url": "https://github.com/korsoftwaresolutions/react-native-joystick/issues"
   },
   "author": {
     "email": "ion@korol.dev",
     "name": "Ion Korol",
-    "url": "https://korol.dev"
+    "url": "https://korsolutions.net"
   },
   "keywords": [
     "react",
@@ -40,21 +40,14 @@
   },
   "scripts": {
     "prepublish": "tsc",
-    "build": "tsc"
+    "build": "tsc --project tsconfig.build.json"
   },
   "peerDependencies": {
-    "react": "18",
-    "react-native": "^0.68.0",
-    "react-native-gesture-handler": "^2.6.0"
+    "react": "18.2.0",
+    "react-native": "0.72.6",
+    "react-native-gesture-handler": "~2.12.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@types/react": "~17.0.21",
-    "@types/react-native": "~0.64.12",
     "typescript": "~4.3.5"
-  },
-  "dependencies": {
-    "react-native": "^0.70.1",
-    "react-native-gesture-handler": "^2.6.0"
   }
 }
