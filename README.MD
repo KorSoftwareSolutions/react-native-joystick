@@ -42,11 +42,11 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 ## Usage
 
 ```js
-import { KorolJoystick } from "korol-joystick";
+import { ReactNativeJoystick } from "@korsolutions/react-native-joystick";
 ```
 
 ```js
-<KorolJoystick color="#06b6d4" radius={75} onMove={(data) => console.log(data)} />
+<ReactNativeJoystick color="#06b6d4" radius={75} onMove={(data) => console.log(data)} />
 ```
 
 ## Props
