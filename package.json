@@ -1,6 +1,6 @@
 {
-  "name": "react-native-joystick",
-  "version": "1.7.0",
+  "name": "@korsolutions/react-native-joystick",
+  "version": "2.0.0",
   "description": "React Native Joystick",
   "license": "MIT",
   "files": [
