@@ -1,13 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { KorolJoystick } from "react-native-joystick";
+import { ReactNativeJoystick } from "@korsolutions/react-native-joystick";
 
 export default function App() {
   return (
     <GestureHandlerRootView style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
-      <KorolJoystick radius={50} onMove={console.log} />
+      <ReactNativeJoystick radius={50} onMove={console.log} />
       <StatusBar style="auto" />
     </GestureHandlerRootView>
   );
