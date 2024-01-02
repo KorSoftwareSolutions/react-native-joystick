@@ -47,7 +47,7 @@ import { KorolJoystick } from "korol-joystick";
 ```
 
 ```js
-<KorolJoystick color="#06b6d4" radius={75} onMove={(data) => console.log(data)}>
+<KorolJoystick color="#06b6d4" radius={75} onMove={(data) => console.log(data)} />
 ```
 
 ## Props
