@@ -17,13 +17,13 @@
 **NPM**
 
 ```shell
-npm install react-native-joystick react-native-gesture-handler --save
+npm install @korsolutions/react-native-joystick react-native-gesture-handler --save
 ```
 
 **YARN**
 
 ```shell
-yarn add react-native-joystick react-native-gesture-handler
+yarn add @korsolutions/react-native-joystick react-native-gesture-handler
 ```
 
 Add GestureHandlerRootView at the root level of your app.
