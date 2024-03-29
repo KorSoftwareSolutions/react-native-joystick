@@ -1,3 +1,4 @@
+import { ViewProps } from "react-native";
 export interface IReactNativeJoystickEvent {
   type: "move" | "stop" | "start";
   position: {
@@ -11,7 +12,7 @@ export interface IReactNativeJoystickEvent {
   };
 }
 
-export interface IReactNativeJoystickProps {
+export interface IReactNativeJoystickProps extends ViewProps {
   onStart?: (e: IReactNativeJoystickEvent) => void;
   onMove?: (e: IReactNativeJoystickEvent) => void;
   onStop?: (e: IReactNativeJoystickEvent) => void;
