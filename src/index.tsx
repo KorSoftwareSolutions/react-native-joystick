@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
 import * as utils from "./utils";
 import { Gesture, GestureDetector, GestureTouchEvent } from "react-native-gesture-handler";
 import { IReactNativeJoystickProps } from "./types";
@@ -15,7 +15,7 @@ export const ReactNativeJoystick = ({ onStart, onMove, onStop, color = "#000000"
     (event: GestureTouchEvent) => {
       const e = event.changedTouches[0];
       const fingerX = e.x;
-      const fingerY = e.y;
+      const fingerY = Platform.OS === 'web' ? (wrapperRadius * 2 - e.y) : e.y;
       let coordinates = {
         x: fingerX - nippleRadius,
         y: fingerY - nippleRadius,
